@@ -13,6 +13,9 @@
   display: none;
 }
 
+.bg-gradient-mesh {
+  background-image: url("/icons/gradient-mesh.svg");
+}
 /* Hide scrollbar for IE, Edge and Firefox */
 .no-scrollbar {
   -ms-overflow-style: none; /* IE and Edge */
@@ -41,6 +44,10 @@
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #7878a3;
+}
+
+.shadow-profile {
+  background-image: url('/icons/a.coffee.svg');
 }
 
 @layer utilities {
@@ -118,7 +125,7 @@
   }
 
   .total-balance {
-    @apply flex w-full items-center gap-4 rounded-xl border border-gray-200 p-4 shadow-chart sm:gap-6 sm:p-6;
+    @apply flex w-full items-center gap-4 rounded-xl border border-gray-200 p-4 shadow-sm sm:gap-6 sm:p-6;
   }
 
   .total-balance-chart {
@@ -193,7 +200,7 @@
 
   /* My Banks */
   .transactions {
-    @apply flex max-h-screen w-full flex-col gap-8 overflow-y-scroll bg-gray-25 p-8 xl:py-12;
+    @apply flex max-h-screen w-full flex-col gap-8 overflow-y-scroll bg-gray-400 p-8 xl:py-12;
   }
 
   .transactions-header {
@@ -222,15 +229,15 @@
 
   /* Bank Card */
   .bank-card {
-    @apply relative flex h-[190px] w-full max-w-[320px] justify-between rounded-[20px] border border-white bg-bank-gradient shadow-creditCard backdrop-blur-[6px];
+    @apply relative flex h-[190px] w-full max-w-[320px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 justify-between rounded-[20px] border border-white  backdrop-blur-[6px];
   }
 
   .bank-card_content {
-    @apply relative z-10 flex size-full max-w-[228px] flex-col justify-between rounded-l-[20px] bg-gray-700 bg-bank-gradient px-5 pb-4 pt-5;
+    @apply relative z-10 flex size-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 max-w-[228px] flex-col justify-between rounded-l-[20px] bg-gray-700  px-5 pb-4 pt-5;
   }
 
   .bank-card_icon {
-    @apply flex size-full flex-1 flex-col items-end justify-between rounded-r-[20px] bg-bank-gradient bg-cover bg-center bg-no-repeat py-5 pr-5;
+    @apply flex size-full flex-1 flex-col items-end justify-between rounded-r-[20px]  bg-cover bg-center bg-no-repeat py-5 pr-5;
   }
 
   /* Bank Info */
@@ -365,7 +372,7 @@
   }
 
   .sidebar-logo {
-    @apply 2xl:text-26 font-ibm-plex-serif text-[26px] font-bold text-black-1 max-xl:hidden;
+    @apply 2xl:text-26  text-[26px] font-bold  max-xl:hidden text-black hidden md:flex;
   }
 
   .sidebar-link {
@@ -373,6 +380,6 @@
   }
 
   .sidebar-label {
-    @apply text-16 font-semibold text-black-2 max-xl:hidden;
+    @apply text-16 font-semibold text-black max-xl:hidden;
   }
 }

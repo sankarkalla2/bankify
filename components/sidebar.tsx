@@ -1,16 +1,17 @@
-"use client";
+"use client"
 import { sidebarLinks } from "@/constants";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+import Footer from "./footer";
 
-const Sidebar = () => {
+const Sidebar = ({user}: SiderbarProps) => {
   const pathname = usePathname();
 
   return (
-    <section className="hidden md:flex p-4 border border-r">
+    <section className="hidden md:flex p-4 border border-r flex-col items-center justify-between">
       <nav className="flex flex-col gap-y-4">
         <Link
           href="/"
@@ -39,10 +40,12 @@ const Sidebar = () => {
                 })}
               />
             </div>
-           <p className={cn("text-black font-medium hidden xl:flex", { '!text-white': pathname===route.route})}>{route.label}</p>
+           <p className={cn("text-black truncate text-sm font-medium hidden xl:flex", { '!text-white': pathname===route.route})}>{route.label}</p>
           </Link>
         ))}
       </nav>
+
+      <Footer name={user?.name} email={user?.email}/>
     </section>
   );
 };

@@ -1,9 +1,10 @@
 import HeaderBox from "@/components/Header-box";
 import RightSidebar from "@/components/right-sidebar";
 import TotalBalanceBox from "@/components/totalBalance-box";
+import { getLoggedInUser } from "@/lib/actions/user.actions";
 
-const Home = () => {
-  const loggedIn = { firstName: "Sankar", lastName: "kalla", email: 'gowrisankarkalla4@gmail.com' };
+const Home = async() => {
+  const loggedIn = await getLoggedInUser();
   return (
     <section className="flex">
       <div className="home-content">
@@ -11,7 +12,7 @@ const Home = () => {
           <HeaderBox
             type="greeting"
             title="Welcome"
-            user={loggedIn ? loggedIn.firstName : "Guest"}
+            user={loggedIn ? loggedIn.name : "Guest"}
             subtext="Access and manage your payments and transaction efficiently "
           />
 
